@@ -17,6 +17,24 @@ npm test          # API tests
 Demo logins (after `npm run seed`): `aarav@demo.edu` / `Demo@1234` (student) and `admin@findit.edu` / `Admin@123` (admin).
 Change the admin password with `ADMIN_PASSWORD=... npm start` before the first run, and set `JWT_SECRET` in production.
 
+## Live demo (GitHub Pages)
+
+The same front end also runs as a **static site** on GitHub Pages. GitHub Pages cannot run Node.js, so
+`public/js/local-api.js` re-implements the REST API in the browser (data is saved in `localStorage`, photos are
+down-scaled and stored as data URLs). The page code (`common.js`, `browse.js`, `item.js` ...) is identical in both
+modes: on startup the app probes `api/auth/me`; if the host answers with JSON (the Express server) it uses the real
+back end, otherwise it uses the in-browser one. Sample data is created on the first visit
+(`aarav@demo.edu` / `Demo@1234`, admin `admin@findit.edu` / `Admin@123`); use **Reset demo data** in the footer to start over.
+
+```bash
+npm run build:pages   # writes the static site to dist/
+npm run preview       # build + serve dist/ on http://localhost:8080
+```
+
+Pushing to `main` deploys `dist/` through `.github/workflows/pages.yml`.
+
+Theme: "Wine & Noir" (wine `#7b1230`, black `#0e0b0d`), defined as CSS variables at the top of `public/css/style.css`.
+
 ## Features and division of work
 
 | # | Feature | Pages | Built by |

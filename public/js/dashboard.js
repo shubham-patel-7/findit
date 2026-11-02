@@ -25,21 +25,21 @@
   document.getElementById('incoming').innerHTML = me.incoming.length
     ? `<ul class="list-group list-group-flush">${me.incoming.map((c) => `
         <li class="list-group-item px-0 d-flex justify-content-between align-items-center gap-2">
-          <span><strong>${esc(c.claimant)}</strong> on <a href="/item.html?id=${c.itemId}">${esc(c.title)}</a><br><small class="text-muted">${timeAgo(c.createdAt)}</small></span>
-          <a class="btn btn-sm btn-ink" href="/item.html?id=${c.itemId}">Review</a></li>`).join('')}</ul>`
+          <span><strong>${esc(c.claimant)}</strong> on <a href="item.html?id=${c.itemId}">${esc(c.title)}</a><br><small class="text-muted">${timeAgo(c.createdAt)}</small></span>
+          <a class="btn btn-sm btn-ink" href="item.html?id=${c.itemId}">Review</a></li>`).join('')}</ul>`
     : empty('No pending claims. You are all caught up.');
 
   document.getElementById('outgoing').innerHTML = me.myClaims.length
     ? `<ul class="list-group list-group-flush">${me.myClaims.map((c) => `
         <li class="list-group-item px-0 d-flex justify-content-between align-items-center gap-2">
-          <span><a href="/item.html?id=${c.itemId}">${esc(c.title)}</a><br><small class="text-muted">${timeAgo(c.createdAt)}</small></span>
+          <span><a href="item.html?id=${c.itemId}">${esc(c.title)}</a><br><small class="text-muted">${timeAgo(c.createdAt)}</small></span>
           <span class="badge badge-status-${c.status} text-capitalize">${c.status}</span></li>`).join('')}</ul>`
     : empty('You have not sent any claims yet.');
 
   // ---- charts (Chart.js, served from /vendor so the app works offline) ----
-  const PALETTE = ['#14213d', '#fca311', '#0b7a6b', '#b3263f', '#5b7bd5', '#8a6dd0', '#7a8499'];
+  const PALETTE = ['#0e0b0d', '#7b1230', '#b8355a', '#4a3a41', '#d98ba3', '#8c7b83', '#c9b9c0'];
   Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-  Chart.defaults.color = '#3b4458';
+  Chart.defaults.color = '#3a3036';
 
   new Chart(document.getElementById('chart-category'), {
     type: 'doughnut',
@@ -55,13 +55,13 @@
     data: {
       labels: stats.weekly.map((w) => (w.weeksAgo === 0 ? 'This week' : w.weeksAgo + 'w ago')),
       datasets: [
-        { label: 'Lost', data: stats.weekly.map((w) => w.lost), backgroundColor: '#b3263f', borderRadius: 4 },
-        { label: 'Found', data: stats.weekly.map((w) => w.found), backgroundColor: '#0b7a6b', borderRadius: 4 },
+        { label: 'Lost', data: stats.weekly.map((w) => w.lost), backgroundColor: '#9b1b3a', borderRadius: 4 },
+        { label: 'Found', data: stats.weekly.map((w) => w.found), backgroundColor: '#0e0b0d', borderRadius: 4 },
       ],
     },
     options: {
       maintainAspectRatio: false,
-      scales: { y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#e3e7f0' } }, x: { grid: { display: false } } },
+      scales: { y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#e8dfe2' } }, x: { grid: { display: false } } },
       plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
     },
   });

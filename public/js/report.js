@@ -55,7 +55,7 @@
     try {
       // multipart/form-data: text fields + the image file in a single POST
       const { id } = await api('/api/items', { method: 'POST', body: new FormData(form) });
-      location.href = '/item.html?id=' + id + '&posted=1';
+      location.href = 'item.html?id=' + id + '&posted=1';
     } catch (err) {
       showAlert(alertBox, err.message);
       showFieldErrors(form, err.fields);

@@ -1,9 +1,11 @@
 /* MODULE 1 (Student 1) - Register and login pages */
 (async () => {
   await initPage();
-  if (CURRENT.user) { location.href = '/'; return; } // already logged in
+  if (CURRENT.user) { location.href = 'index.html'; return; } // already logged in
 
   const form = document.querySelector('form');
+  const demoHint = document.getElementById('demo-hint'); // only on the login page, only when running on static hosting
+  if (demoHint && window.FINDIT_LOCAL && window.FINDIT_LOCAL.isActive()) demoHint.hidden = false;
   const alertBox = document.getElementById('form-alert');
   const isRegister = form.id === 'register-form';
 
@@ -29,7 +31,7 @@
       // 2) JSON POST -> server validates again, hashes the password, sets the cookie
       await api(isRegister ? '/api/auth/register' : '/api/auth/login', { method: 'POST', body });
       const next = new URLSearchParams(location.search).get('next');
-      location.href = next && next.startsWith('/') && !next.startsWith('//') ? next : '/';
+      location.href = next && next.startsWith('/') && !next.startsWith('//') ? next : 'index.html';
     } catch (err) {
       showAlert(alertBox, err.message);
       showFieldErrors(form, err.fields);

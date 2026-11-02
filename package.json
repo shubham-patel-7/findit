@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build:pages": "node scripts/build-pages.js",
+    "preview": "node scripts/build-pages.js && npx --yes http-server dist -p 8080 -c-1",
     "seed": "node scripts/seed.js",
     "reseed": "node scripts/seed.js --force",
     "test": "node --test tests/api.test.js"
