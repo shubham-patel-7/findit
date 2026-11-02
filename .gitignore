@@ -5,3 +5,4 @@ uploads/*
 tests/tmp/
 *.log
 .env
+dist/

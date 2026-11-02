@@ -45,7 +45,7 @@
       <div class="list-group-item px-0 d-flex flex-wrap gap-2 justify-content-between align-items-center">
         <div>
           <span class="badge badge-${i.type} me-1">${i.type === 'lost' ? 'Lost' : 'Found'}</span>
-          <a href="/item.html?id=${i.id}" class="fw-semibold">${esc(i.title)}</a>
+          <a href="item.html?id=${i.id}" class="fw-semibold">${esc(i.title)}</a>
           <div class="item-meta">${esc(i.location)} &middot; posted ${timeAgo(i.createdAt)}</div>
         </div>
         <div class="d-flex align-items-center gap-2">

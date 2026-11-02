@@ -25,7 +25,7 @@
   async function load() {
     let data;
     try { data = await api('/api/items/' + encodeURIComponent(id)); }
-    catch (e) { content.innerHTML = `<div class="alert alert-danger">${esc(e.message)} <a href="/">Back to browse</a></div>`; return; }
+    catch (e) { content.innerHTML = `<div class="alert alert-danger">${esc(e.message)} <a href="index.html">Back to browse</a></div>`; return; }
     render(data);
   }
 
@@ -52,7 +52,7 @@
     // ----- visitor / claimant section -----
     if (!viewer.isOwner) {
       if (!viewer.loggedIn) {
-        side += `<div class="panel"><p class="mb-2">Log in to send a claim for this item.</p><a class="btn btn-accent" href="/login.html?next=${encodeURIComponent(location.pathname + location.search)}">Log in</a></div>`;
+        side += `<div class="panel"><p class="mb-2">Log in to send a claim for this item.</p><a class="btn btn-accent" href="login.html?next=${encodeURIComponent(location.pathname + location.search)}">Log in</a></div>`;
       } else if (viewer.myClaim) {
         side += `<div class="panel"><h2 class="h6">Your claim <span class="badge badge-status-${viewer.myClaim.status} text-capitalize ms-1">${viewer.myClaim.status}</span></h2>
           <p class="mb-1 small text-muted">Sent ${timeAgo(viewer.myClaim.createdAt)}</p><p class="mb-0">${esc(viewer.myClaim.message)}</p></div>`;

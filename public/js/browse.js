@@ -30,7 +30,7 @@
       grid.innerHTML = data.items.length
         ? data.items.map(itemCard).join('')
         : `<div class="col-12"><div class="panel text-center py-5"><i class="bi bi-inbox display-4 text-muted" aria-hidden="true"></i>
-             <p class="mt-2 mb-3">Nothing matches your search yet.</p><a class="btn btn-accent" href="/report.html">Report an item</a></div></div>`;
+             <p class="mt-2 mb-3">Nothing matches your search yet.</p><a class="btn btn-accent" href="report.html">Report an item</a></div></div>`;
       renderPager(data);
     } catch (e) {
       count.textContent = 'Could not load items';

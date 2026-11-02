@@ -15,7 +15,7 @@
     body.innerHTML = items.length
       ? items.map((i) => `
         <tr>
-          <td><a href="/item.html?id=${i.id}" class="fw-semibold">${esc(i.title)}</a><div class="item-meta">${esc(i.category)} &middot; ${esc(i.location)}</div></td>
+          <td><a href="item.html?id=${i.id}" class="fw-semibold">${esc(i.title)}</a><div class="item-meta">${esc(i.category)} &middot; ${esc(i.location)}</div></td>
           <td><span class="badge badge-${i.type}">${i.type}</span></td>
           <td>${esc(i.ownerName)}</td>
           <td><span class="badge badge-status-${i.status} text-capitalize">${i.status}</span></td>
