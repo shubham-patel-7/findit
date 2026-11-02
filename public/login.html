@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in · FindIt</title>
+  <meta name="description" content="Log in to report, search and claim lost and found items.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <div class="panel auth-card">
+      <h1 class="h3 mb-1">Welcome back</h1>
+      <p class="text-muted">New here? <a href="/register.html">Create an account</a></p>
+
+      <div id="form-alert" role="alert" hidden></div>
+
+      <form id="login-form" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" name="email" type="email" class="form-control" required autocomplete="email">
+          <div class="invalid-feedback">Enter a valid email address.</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group has-validation">
+            <input id="password" name="password" type="password" class="form-control" required autocomplete="current-password">
+            <button class="btn btn-outline-secondary" type="button" id="toggle-pw" aria-label="Show password"><i class="bi bi-eye" aria-hidden="true"></i></button>
+            <div class="invalid-feedback">Enter your password.</div>
+          </div>
+        </div>
+        <button class="btn btn-accent w-100" type="submit">Log in</button>
+      </form>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

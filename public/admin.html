@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin panel · FindIt</title>
+  <meta name="description" content="Moderate posts and view registered users.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <h1 class="h3 mb-3"><i class="bi bi-shield-check me-2" aria-hidden="true"></i>Admin panel</h1>
+    <div id="page-alert" role="alert" hidden></div>
+
+    <ul class="nav nav-tabs mb-3" role="tablist">
+      <li class="nav-item" role="presentation"><button class="nav-link active" id="tab-items" data-bs-toggle="tab" data-bs-target="#pane-items" type="button" role="tab" aria-controls="pane-items" aria-selected="true">Posts</button></li>
+      <li class="nav-item" role="presentation"><button class="nav-link" id="tab-users" data-bs-toggle="tab" data-bs-target="#pane-users" type="button" role="tab" aria-controls="pane-users" aria-selected="false">Users</button></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="pane-items" role="tabpanel" aria-labelledby="tab-items" tabindex="0">
+        <form id="admin-filter" class="row g-2 mb-3" role="search">
+          <div class="col-md-6"><label class="visually-hidden" for="a-q">Search posts or users</label>
+            <input id="a-q" class="form-control" type="search" placeholder="Search by title or poster name" maxlength="80"></div>
+          <div class="col-md-3"><label class="visually-hidden" for="a-status">Status</label>
+            <select id="a-status" class="form-select"><option value="">All statuses</option><option>open</option><option>claimed</option><option>resolved</option><option>removed</option></select></div>
+        </form>
+        <div class="panel p-0 table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <caption class="visually-hidden">All posts</caption>
+            <thead><tr><th scope="col">Item</th><th scope="col">Type</th><th scope="col">Posted by</th><th scope="col">Status</th><th scope="col" class="text-end">Action</th></tr></thead>
+            <tbody id="items-body"><tr><td colspan="5" class="text-muted">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="pane-users" role="tabpanel" aria-labelledby="tab-users" tabindex="0">
+        <div class="panel p-0 table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <caption class="visually-hidden">Registered users</caption>
+            <thead><tr><th scope="col">Name</th><th scope="col">Reg. no.</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col" class="text-end">Posts</th><th scope="col">Joined</th></tr></thead>
+            <tbody id="users-body"><tr><td colspan="6" class="text-muted">Loading…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My profile · FindIt</title>
+  <meta name="description" content="Manage your FindIt profile, password and posts.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <h1 class="h3 mb-3">My profile</h1>
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <section class="panel mb-4" aria-labelledby="details-title">
+          <h2 id="details-title" class="h5">Account details</h2>
+          <dl class="row mb-3 small">
+            <dt class="col-5 text-muted">Registration no.</dt><dd class="col-7" id="p-regNo"></dd>
+            <dt class="col-5 text-muted">Email</dt><dd class="col-7 text-break" id="p-email"></dd>
+            <dt class="col-5 text-muted">Member since</dt><dd class="col-7" id="p-since"></dd>
+          </dl>
+          <div id="profile-alert" role="alert" hidden></div>
+          <form id="profile-form" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Full name</label>
+              <input id="name" name="name" class="form-control" required minlength="2" maxlength="60">
+              <div class="invalid-feedback">Enter your full name (2-60 characters).</div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input id="phone" name="phone" type="tel" class="form-control" pattern="[0-9+\-\s]{10,15}">
+              <div class="invalid-feedback">Enter a valid phone number (10-15 digits).</div>
+            </div>
+            <button class="btn btn-ink" type="submit">Save changes</button>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="pw-title">
+          <h2 id="pw-title" class="h5">Change password</h2>
+          <div id="pw-alert" role="alert" hidden></div>
+          <form id="password-form" novalidate>
+            <div class="mb-3">
+              <label for="currentPassword" class="form-label">Current password</label>
+              <input id="currentPassword" name="currentPassword" type="password" class="form-control" required autocomplete="current-password">
+              <div class="invalid-feedback">Enter your current password.</div>
+            </div>
+            <div class="mb-3">
+              <label for="newPassword" class="form-label">New password</label>
+              <input id="newPassword" name="newPassword" type="password" class="form-control" required minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d).{8,}" autocomplete="new-password">
+              <div class="invalid-feedback">Use at least 8 characters, including a letter and a number.</div>
+            </div>
+            <button class="btn btn-ink" type="submit">Update password</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="col-lg-7">
+        <section class="panel" aria-labelledby="posts-title">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 id="posts-title" class="h5 mb-0">My posts</h2>
+            <a class="btn btn-accent btn-sm" href="/report.html"><i class="bi bi-plus-circle me-1" aria-hidden="true"></i>New post</a>
+          </div>
+          <div id="my-posts"><p class="text-muted">Loading…</p></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

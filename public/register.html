@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create an account · FindIt</title>
+  <meta name="description" content="Sign up for FindIt with your MIT Manipal registration number.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <div class="panel auth-card">
+      <h1 class="h3 mb-1">Create your account</h1>
+      <p class="text-muted">Already registered? <a href="/login.html">Log in</a></p>
+
+      <div id="form-alert" role="alert" hidden></div>
+
+      <form id="register-form" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Full name</label>
+          <input id="name" name="name" class="form-control" required minlength="2" maxlength="60" autocomplete="name">
+          <div class="invalid-feedback">Enter your full name (2-60 characters).</div>
+        </div>
+        <div class="mb-3">
+          <label for="regNo" class="form-label">Registration number</label>
+          <input id="regNo" name="regNo" class="form-control" required pattern="\d{9}" inputmode="numeric" maxlength="9" aria-describedby="regNo-help">
+          <div id="regNo-help" class="form-text">9-digit number printed on your ID card.</div>
+          <div class="invalid-feedback">Registration number must be 9 digits.</div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" name="email" type="email" class="form-control" required autocomplete="email">
+          <div class="invalid-feedback">Enter a valid email address.</div>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone <span class="text-muted fw-normal">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" class="form-control" pattern="[0-9+\-\s]{10,15}" autocomplete="tel" aria-describedby="phone-help">
+          <div id="phone-help" class="form-text">Only shared with a person whose claim you approve.</div>
+          <div class="invalid-feedback">Enter a valid phone number (10-15 digits).</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group has-validation">
+            <input id="password" name="password" type="password" class="form-control" required minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d).{8,}" autocomplete="new-password" aria-describedby="pw-help">
+            <button class="btn btn-outline-secondary" type="button" id="toggle-pw" aria-label="Show password"><i class="bi bi-eye" aria-hidden="true"></i></button>
+            <div class="invalid-feedback">Use at least 8 characters, including a letter and a number.</div>
+          </div>
+          <div id="pw-help" class="form-text">At least 8 characters with a letter and a number.</div>
+        </div>
+        <button class="btn btn-accent w-100" type="submit">Create account</button>
+      </form>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
