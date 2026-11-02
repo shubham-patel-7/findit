@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report an item · FindIt</title>
+  <meta name="description" content="Report a lost or found item on the MIT Manipal campus, with a photo.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="h3 mb-1">Report an item</h1>
+        <p class="text-muted">The more detail you give, the easier it is to match. Don't put contact numbers in the description - they are shared only after you approve a claim.</p>
+
+        <div id="form-alert" role="alert" hidden></div>
+
+        <!-- Feature 3: report a lost / found item (multipart form + image upload) -->
+        <form id="report-form" class="panel" novalidate enctype="multipart/form-data">
+          <fieldset class="mb-3">
+            <legend class="form-label fs-6">What happened?</legend>
+            <div class="btn-group w-100" role="group" aria-label="Item type">
+              <input type="radio" class="btn-check" name="type" id="type-lost" value="lost" required>
+              <label class="btn btn-outline-danger" for="type-lost"><i class="bi bi-search me-1" aria-hidden="true"></i>I lost something</label>
+              <input type="radio" class="btn-check" name="type" id="type-found" value="found" required>
+              <label class="btn btn-outline-success" for="type-found"><i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i>I found something</label>
+            </div>
+            <div class="text-danger small mt-1" data-feedback="type" id="type-error" hidden>Choose lost or found.</div>
+          </fieldset>
+
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label for="title" class="form-label">Item name</label>
+              <input id="title" name="title" class="form-control" required minlength="3" maxlength="80" placeholder="e.g. Casio fx-991EX calculator">
+              <div class="invalid-feedback">Title must be 3-80 characters.</div>
+            </div>
+            <div class="col-md-4">
+              <label for="category" class="form-label">Category</label>
+              <select id="category" name="category" class="form-select" required><option value="">Choose…</option></select>
+              <div class="invalid-feedback">Choose a category.</div>
+            </div>
+            <div class="col-12">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" name="description" class="form-control" rows="4" required minlength="10" maxlength="1000" aria-describedby="desc-help" placeholder="Colour, brand, marks, stickers, what was inside…"></textarea>
+              <div id="desc-help" class="form-text"><span id="desc-count">0</span>/1000 characters</div>
+              <div class="invalid-feedback">Description must be 10-1000 characters.</div>
+            </div>
+            <div class="col-md-7">
+              <label for="location" class="form-label">Where?</label>
+              <input id="location" name="location" class="form-control" required minlength="3" maxlength="80" list="places" placeholder="e.g. Central Library, 2nd floor">
+              <datalist id="places">
+                <option value="Central Library"><option value="Academic Block 1"><option value="Academic Block 5"><option value="Innovation Centre">
+                <option value="Student Plaza"><option value="Food Court"><option value="Sports Complex"><option value="Hostel Block">
+              </datalist>
+              <div class="invalid-feedback">Location must be 3-80 characters.</div>
+            </div>
+            <div class="col-md-5">
+              <label for="dateEvent" class="form-label">Date</label>
+              <input id="dateEvent" name="dateEvent" type="date" class="form-control" required>
+              <div class="invalid-feedback">Pick a valid date (not in the future).</div>
+            </div>
+            <div class="col-12">
+              <label for="image" class="form-label">Photo <span class="text-muted fw-normal">(optional, JPG/PNG/WebP, max 3 MB)</span></label>
+              <input id="image" name="image" type="file" class="form-control" accept="image/jpeg,image/png,image/webp">
+              <div class="invalid-feedback">Choose a JPG, PNG or WebP image under 3 MB.</div>
+              <img id="preview" class="image-preview mt-3" alt="Preview of the selected photo" hidden>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 mt-4">
+            <button class="btn btn-accent" type="submit"><i class="bi bi-send me-1" aria-hidden="true"></i>Post item</button>
+            <a class="btn btn-outline-secondary" href="/">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/report.js"></script>
+</body>
+</html>

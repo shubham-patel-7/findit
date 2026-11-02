@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse lost &amp; found items · FindIt</title>
+  <meta name="description" content="Search items reported lost or found on the MIT Manipal campus.">
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <section class="hero mb-4" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="display-6">Lost something on campus?<br>Found something that isn't yours?</h1>
+      <p class="mb-3">FindIt connects students who lost belongings with the people who found them. Search the board, or post an item in under a minute.</p>
+      <a class="btn btn-accent btn-lg me-2" href="/report.html"><i class="bi bi-plus-circle me-1" aria-hidden="true"></i>Report an item</a>
+      <a class="btn btn-outline-light btn-lg" href="#results">Browse items</a>
+    </section>
+
+    <!-- Feature 4: search + filter -->
+    <form id="filter-form" class="panel mb-3" role="search" aria-label="Search and filter items">
+      <div class="row g-3 align-items-end">
+        <div class="col-12 col-lg-4">
+          <label for="f-search" class="form-label">Search</label>
+          <div class="input-group">
+            <span class="input-group-text" aria-hidden="true"><i class="bi bi-search"></i></span>
+            <input id="f-search" name="search" type="search" class="form-control" placeholder="e.g. calculator, blue bottle, library" maxlength="80" autocomplete="off">
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <label for="f-type" class="form-label">Type</label>
+          <select id="f-type" name="type" class="form-select">
+            <option value="">All</option><option value="lost">Lost</option><option value="found">Found</option>
+          </select>
+        </div>
+        <div class="col-6 col-lg-3">
+          <label for="f-category" class="form-label">Category</label>
+          <select id="f-category" name="category" class="form-select"><option value="">All categories</option></select>
+        </div>
+        <div class="col-6 col-lg-2">
+          <label for="f-status" class="form-label">Status</label>
+          <select id="f-status" name="status" class="form-select">
+            <option value="">Any</option><option value="open">Open</option><option value="claimed">Claimed</option><option value="resolved">Resolved</option>
+          </select>
+        </div>
+        <div class="col-6 col-lg-1 d-grid">
+          <button type="button" id="f-reset" class="btn btn-outline-secondary" aria-label="Clear all filters"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </form>
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3" id="results">
+      <h2 class="h5 mb-0" id="result-count" aria-live="polite">Loading…</h2>
+      <div class="d-flex align-items-center gap-2">
+        <label for="f-sort" class="small text-muted mb-0">Sort by</label>
+        <select id="f-sort" class="form-select form-select-sm w-auto">
+          <option value="newest">Newest first</option><option value="oldest">Oldest first</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="items" class="row g-3"></div>
+    <nav id="pager" class="mt-4" aria-label="Pagination"></nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/browse.js"></script>
+</body>
+</html>
